@@ -13,8 +13,8 @@
 
 __CONFIG 	_CP_OFF&_WDT_OFF&_PWRTE_ON&_XT_OSC
 
-cntl	equ	0x10
-cnth	equ	0x11
+cntl		equ	0x10
+cnth		equ	0x11
 cx		equ	0x12
 vericnt equ	0x13
 RS		equ	0x00
@@ -37,10 +37,10 @@ tekrar	goto	tekrar
 
 kurulum;******************************************************************
 
-		bsf 	STATUS,RP0		;Bank 1'e geç
+		bsf 	STATUS,RP0		;Bank 1'e geÃ§
 		clrf	TRISA
 		clrf	TRISB
-		bcf		STATUS,RP0		;Bank 0'a dön	
+		bcf	STATUS,RP0		;Bank 0'a dÃ¶n	
 		clrf	vericnt
 		return
 		
@@ -50,11 +50,11 @@ clear;*******************************************************************
 		call	timer_low		;bekle
 		movlw	b'00000001'		;displayi temizle
 		movwf	PORTB
-		bcf	PORTA,RS			;RS -> komut
-		bcf	PORTA,RW			;RW -> yaz
-		bsf	PORTA,EN			;--
-		nop			;  \
-		bcf	PORTA,EN	;   --
+		bcf	PORTA,RS		;RS -> komut
+		bcf	PORTA,RW		;RW -> yaz
+		bsf	PORTA,EN		;--
+		nop				;  \
+		bcf	PORTA,EN		;   --
 		return
 		
 lcd_reset;****************************************************************
@@ -151,9 +151,9 @@ mesaj_verisi;******************************************************************
 timer_low;******************************************************************
 		movlw	0xff
 		movwf	cnth
-dongu2	movlw	0xff
+dongu2		movlw	0xff
 		movwf	cntl
-dongu1	decfsz	cntl,F
+dongu1		decfsz	cntl,F
 		goto	dongu1
 		decfsz	cnth,F
 		goto	dongu2
